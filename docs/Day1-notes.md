@@ -5,7 +5,7 @@ Source - https://www.tutorialspoint.com/compiler_design/index.htm
 ## Language Processing System
 
 - **Preprocessor** - produces input for compilers. Deals with macro-processing, augmentation, file inclusion, language extenion etc.
-expands `#include`, macros and conditionals, leaving plain C/C++ the compiler can read[2].
+expands `#include`, macros and conditionals, leaving plain C/C++ the compiler can read.
 
 - **Compiler** - A compiler reads the whole source code at once, creates tokens, checks semantics, generates intermediate code, executes the whole program and may involve many passes.
 runs the internal phases below and emits assembly (`.s`)
@@ -26,7 +26,7 @@ part of the OS; loads the exe into RAM, patches addresses, jumps to `main()`
 
 ## 1. Lexical Analysis  
 The first phase of scanner works as a text scanner. This phase scans the source code as a stream of characters and converts it into meaningful lexemes. Lexical analyzer represents these lexemes in the form of tokens as: <token-name, attribute-value>
-- Consumes characters → produces tokens `<token-name, attr>`[6].  
+- Consumes characters → produces tokens `<token-name, attr>`.  
 - Uses regex-based DFAs; tools: **Lex / flex**. 
 
 ## 2. Syntax Analysis  

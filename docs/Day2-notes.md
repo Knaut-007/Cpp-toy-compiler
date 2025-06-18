@@ -13,15 +13,15 @@ Removes whitespace and comments, making it easier for the next phase (parser) to
 
 - It also strips out comments and whitespace, and may interact with the symbol table to record identifiers.
 
-Tokens are the basic building blocks (like words in a sentence) that the parser will use to understand the structure of the code.
+- - Tokens are the basic building blocks (like words in a sentence) that the parser will use to understand the structure of the code.
 
 
-- **Why use .hpp and .cpp files**
+## Why use .hpp and .cpp files
 - .hpp (header) files declare the structures, enums, and function prototypes to share between multiple .cpp files. For organization and to avoid duplication.
 - .cpp (source) files contain the actual implementation (function bodies, logic, etc.)
 
-- **What is #pragma once** 
-preprocessor directive placed at the top of a header file to ensure the file is included only once per compilation, preventing duplicate definitions and errors.  
+## What is #pragma once
+- preprocessor directive placed at the top of a header file to ensure the file is included only once per compilation, preventing duplicate definitions and errors.  
 
 ## Understanding main.cpp (Arguments, File Streams, and Buffers)
 
@@ -39,4 +39,5 @@ Primary Source - https://stackoverflow.com
 
 - buf.str(): Gets the string to pass to the lexer.
 
-- **Test files** - Created test files for each new feature added in the lexer to ensure correctness and make debugging easier.
+## Test files 
+- Created test files for each new feature added in the lexer to ensure correctness and make debugging easier.

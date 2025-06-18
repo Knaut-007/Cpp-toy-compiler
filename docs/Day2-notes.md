@@ -41,3 +41,69 @@ Primary Source - https://stackoverflow.com
 
 ## Test files 
 - Created test files for each new feature added in the lexer to ensure correctness and make debugging easier.
+
+# Lexer: Token Table, Test Coverage, and Logic
+
+## TokenKind Enum Mapping
+
+| Integer Value | TokenKind   | Example      |
+|---------------|-------------|--------------|
+| 0             | Identifier  | `foo`, `bar` |
+| 1             | Number      | `42`, `7`    |
+| 2             | Equal       | `=`          |
+| 3             | Plus        | `+`          |
+| 4             | Minus       | `-`          |
+| 5             | Star        | `*`          |
+| 6             | Slash       | `/`          |
+| 7             | LParen      | `(`          |
+| 8             | RParen      | `)`          |
+| 9             | Unknown     | `$`, `@`, `#`|
+| 10            | EndOfFile   |              |
+
+*This table matches the order in the `TokenKind` enum and helps to quickly interpret the output of the lexer tests.*[1]
+
+
+## Test File Coverage
+
+- **identifiers.toy** — tests recognition of identifiers like `foo`, `bar`, `myVar123`.
+- **numbers.toy** — tests recognition of numbers like `123`, `42`, `0`.
+- **operators.toy** — tests recognition of operators: `=`, `+`, `-`, `*`, `/`.
+- **parentheses.toy** — tests recognition of parentheses: `(`, `)`.
+- **unknowns.toy** — tests handling of unknown/invalid characters like `$`, `@`, `#`.
+
+
+*All these test files are in `tests/lexer/` and the lexer correctly tokenizes each case, as verified by running `./main.exe` on each file and checking the output matches the expected token kinds and text.*[1]
+
+---
+
+## Lexer Logic (How The Lexer Works)
+
+- **Whitespace:**  
+  Skips any whitespace characters using `std::isspace` before checking for tokens.
+
+- **Identifiers:**  
+  If the current character is a letter or underscore, starts an identifier token.  
+  Continues while the character is alphanumeric or underscore, then emits a token of kind `Identifier` with the matched text.
+
+- **Numbers:**  
+  If the current character is a digit, starts a number token.  
+  Continues while the character is a digit, then emits a token of kind `Number` with the matched text.
+
+- **Single-Character Tokens:**  
+  Checks for `=`, `+`, `-`, `*`, `/`, `(`, `)`.
+  Emits the corresponding token kind and advances to the next character.
+
+- **End of File:**  
+  After processing all input, appends an `EndOfFile` token to signal the end of the token stream.
+
+*This order ensures that whitespace is ignored, identifiers and numbers are grouped correctly, and all single-character tokens are recognized individually.*[1]
+
+#### Handling Unknown Characters
+
+- If the lexer encounters a character that does not match any known token type, it:
+  - Prints a warning to `std::cerr` with the character and its position.
+  - Emits a token of kind `Unknown` with the character as its text.
+- This ensures that typos or unsupported symbols are not silently ignored and are visible both in the output and as warnings in the terminal[#].
+
+**Reference:**  
+[1] https://www.tutorialspoint.com/what-is-the-role-of-the-lexical-analyzer-in-compiler-design

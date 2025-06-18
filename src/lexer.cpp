@@ -1,5 +1,6 @@
 #include "lexer.hpp"
 #include <cctype>
+#include <iostream>
 
 std::vector<Token> lex(const std:: string& src){
     std::vector<Token> tokens;
@@ -25,6 +26,45 @@ std::vector<Token> lex(const std:: string& src){
             tokens.push_back({TokenKind::Number, src.substr(start, i - start)});
             continue;
         }
+        if (src[i] == '=') { 
+            tokens.push_back({TokenKind::Equal, "="}); 
+            i++; 
+            continue; 
+        }
+        if (src[i] == '+') { 
+            tokens.push_back({TokenKind::Plus, "+"}); 
+            i++; 
+            continue; 
+        }
+        if (src[i] == '-') { 
+            tokens.push_back({TokenKind::Minus, "-"}); 
+            i++; 
+            continue; 
+        }
+        if (src[i] == '*') { 
+            tokens.push_back({TokenKind::Star, "*"}); 
+            i++; 
+            continue; 
+        }
+        if (src[i] == '/') { 
+            tokens.push_back({TokenKind::Slash, "/"}); 
+            i++; 
+            continue; 
+        }
+        if (src[i] == '(') { 
+            tokens.push_back({TokenKind::LParen, "("}); 
+            i++; 
+            continue; 
+        }
+        if (src[i] == ')') { 
+            tokens.push_back({TokenKind::RParen, ")"}); 
+            i++; 
+            continue; 
+        }
+
+        //Error case for unknown character
+        std::cerr << "Warning: Unknown Character '" << src[i] << "' at position " << i << '\n';
+        tokens.push_back({TokenKind::Unknown, std::string(1, src[i])}); 
         i++;
     }
     tokens.push_back({TokenKind::EndOfFile, ""});

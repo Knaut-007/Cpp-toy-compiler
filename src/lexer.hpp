@@ -2,7 +2,19 @@
 #include <string>
 #include <vector>
 
-enum class TokenKind { Identifier, Number, EndOfFile };
+enum class TokenKind { 
+    Identifier,
+    Number,
+    Equal,
+    Plus, 
+    Minus, 
+    Star,
+    Slash,
+    LParen,
+    RParen,
+    Unknown,
+    EndOfFile
+};
 
 struct Token {
     TokenKind kind;

@@ -16,21 +16,17 @@ int main(int argc, char* argv[]){
     }
     std::ostringstream buf;
     buf << the_file.rdbuf();
-    for(auto& tok : lex(buf.str())){
-        std::cout << static_cast<int>(tok.kind) << " " << tok.text << '\n';
-    }
-
-    // Parsing
     auto tokens = lex(buf.str());
     for (auto& tok : tokens){
         std::cout << static_cast<int>(tok.kind) << " " << tok.text << '\n';
     }
+
 
     // Parse and print AST
     auto ast = parse(tokens);
     for (const auto& stmt : ast){
         stmt->print();
     }
-    
+
     return 0;
 } 

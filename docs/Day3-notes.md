@@ -103,3 +103,55 @@ Assignment(y)
 - The lexer correctly splits the input into tokens.
 - The parser builds a tree structure that reflects the grammar and operator precedence.
 - This output can be used for further compiler phases, such as semantic analysis or code generation.
+
+## Parser Output and Interpretation
+
+## How the Parser Builds and Prints the AST
+
+- The parser takes the list of tokens produced by the lexer and uses a **recursive descent** approach to analyze the structure of the input according to the grammar rules.
+- For each assignment statement (e.g., `x = 1 + 2 * 3`), the parser creates an `AssignmentNode` as the root, with the left side as an identifier and the right side as an expression tree.
+- Expressions are parsed into a tree of `BinaryOpNode`, `NumberNode`, and `IdentifierNode` objects, reflecting operator precedence and grouping (e.g., multiplication before addition).
+- The parser's `print()` method recursively prints the AST in a readable, indented format, showing the structure of the parsed code.
+
+---
+
+## Expected Output for Sample Input
+
+**Input file (`tests/parser/assign_expr.toy`):**
+x = 1 + 2 * 3
+y = x - 4
+
+
+**Output (AST printout):**
+Assignment(x)
+  BinaryOp(+)
+    Number(1)
+    BinaryOp(*)
+      Number(2)
+      Number(3)
+Assignment(y)
+  BinaryOp(-)
+    Identifier(x)
+    Number(4)
+
+
+## How to Run the Project and Interpret the Output
+
+1. **Build the project:**
+g++ src/main.cpp src/lexer.cpp src/parser.cpp -o main.exe
+
+
+2. **Run the compiler with a test file:**
+./main.exe tests/parser/assign_expr.toy
+
+
+3. **Interpreting the output:**
+- The output shows the token stream (if enabled) and the parse tree (AST) for each statement.
+- Use the tree structure to verify that the parser correctly respects operator precedence and assignment structure.
+- If there is a syntax error, the parser prints a clear error message and stops.
+
+---
+
+*This demonstrates that the compiler can parse and structurally understand simple assignment and arithmetic statements.*
+
+

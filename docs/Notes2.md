@@ -1,4 +1,4 @@
-# Day-2 Notes -> Lexical Analysis (Lexer)
+# Notes2 -> Lexical Analysis (Lexer)
 
 Primary source - https://www.tutorialspoint.com/what-is-the-role-of-the-lexical-analyzer-in-compiler-design
 

@@ -1,4 +1,4 @@
-# Day-1 Notes — Compiler Pipeline
+# Notes1 — Compiler Pipeline
 
 Source - https://www.tutorialspoint.com/compiler_design/index.htm
 

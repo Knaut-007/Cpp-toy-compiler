@@ -1,4 +1,4 @@
-# Day 3 -> Syntax Analysis (Parser)
+# Notes3 -> Syntax Analysis (Parser)
 
 Primary source - https://www.tutorialspoint.com/compiler_design/compiler_design_syntax_analysis.htm
 

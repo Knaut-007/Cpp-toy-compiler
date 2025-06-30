@@ -106,4 +106,4 @@ Primary Source - https://stackoverflow.com
 - This ensures that typos or unsupported symbols are not silently ignored and are visible both in the output and as warnings in the terminal[#].
 
 **Reference:**  
-[1] https://www.tutorialspoint.com/what-is-the-role-of-the-lexical-analyzer-in-compiler-design
+https://www.tutorialspoint.com/what-is-the-role-of-the-lexical-analyzer-in-compiler-design

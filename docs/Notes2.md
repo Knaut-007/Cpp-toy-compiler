@@ -104,6 +104,3 @@ Primary Source - https://stackoverflow.com
   - Prints a warning to `std::cerr` with the character and its position.
   - Emits a token of kind `Unknown` with the character as its text.
 - This ensures that typos or unsupported symbols are not silently ignored and are visible both in the output and as warnings in the terminal[#].
-
-**Reference:**  
-https://www.tutorialspoint.com/what-is-the-role-of-the-lexical-analyzer-in-compiler-design

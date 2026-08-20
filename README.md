@@ -72,6 +72,13 @@ This is my attempt at building a tiny compiler for a super simple C++-like langu
    - Every feature (identifiers, numbers, operators, errors) has its own test file in the `tests/` folder.
    - You can run the compiler on any of these files and see exactly what happens at each step.
 
+### 4. Stack-Based Virtual Machine (Backend Engine)
+   - Intermediate Representation (IR): A custom compiler pass traverses the AST and emits bytecode instructions (e.g., PUSH, ADD, LOAD, STORE).
+
+   - Execution Engine: A stack-based Virtual Machine decodes and executes the bytecode sequentially.
+
+   - Memory Management: Implements a Symbol Table and global memory array for variable state persistence, handling variables by integer ID for fast lookup.
+
 ---
 
 ## What You Can Run
